@@ -1,7 +1,3 @@
-// 원래는 해당 직접적인 페이지에는 유연한 유지보수를 위해서 
-// 라우터에 관련된 내용만 들어가는게 좋다.
-// 🍖 SO, 데이터와 관련된 부분은 별도의 컴포넌트로 따로 빼두는것이 좋다. 🍖
-// 🍖 현재는 기본적인 내용으로 일단 axios를 해당 파일에 적용 해둠. 🍖
 <template>
   <div>
       <div v-for='user in users' v-bind:key="user.id">
@@ -11,7 +7,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { fetchNewsList } from "../api/index";
 
 export default {
   data(){
@@ -20,15 +16,24 @@ export default {
     }
   },
   created(){
-    var vm = this;
-    axios.get('https://api.hnpwa.com/v0/news/1.json')
-    .then(function(response){
-      console.log(response);
-      vm.users = response.data
-    })
+    // 🍚 화살표 함수 적용 후 🍚
+    fetchNewsList()
+    .then(response => this.users = response.data)
     .catch(function(error){
       console.log(error);
     })
+
+    // ========== 😮 this의 차이 😮 ==========
+    // function()의 this :  선언된 함수 내부를 가리키게 됩니다. 
+    // arrow function의 this : 함수가 선언되든 말든 원래의 위치인 Vue Instance를 가리킵니다.
+
+    // 🍳 화살표 함수 적용 전 🍳
+    // var vm = this;
+    // fetchNewsList()
+    // .then(function(response){
+    //   console.log(response.data);
+    //   vm.users = response.data;
+    // })
   }
 }
 </script>
