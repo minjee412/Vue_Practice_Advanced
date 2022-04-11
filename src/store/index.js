@@ -13,6 +13,7 @@ export const store = new Vuex.Store({
     jobs: [],
     ask: [],
     user: {},
+    item: {},
   },
   getters: {
     // 👩‍💻 getters : computed와 동일한 기능인데(다만,store에 있을 뿐이다.) 👩‍💻

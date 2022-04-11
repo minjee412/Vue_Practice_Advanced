@@ -1,18 +1,18 @@
 <template>
   <div>
-    <!-- #1 -->
-    <!-- <div v-for="item in ask.ask" v-bind:key="item.id"> -->
-    <!-- #2 & #3 -->
-    <!-- <div v-for="item in fetchedAsk /*askItems*/" v-bind:key="item.id">
-      {{ item.title }}
-    </div> -->
-
-    <!-- ============== 디자인 정리 ============== -->
+    <!-- ============== 해당 페이지 연결 ============== -->
     <p v-for="item in fetchedAsk" v-bind:key="item.id">
-      <a v-bind:href="item.url">
-        <!-- item 안에 있는 데이터를 href에 연결해야 되기 때문에 v-bind를 사용한다. -->
+      <!-- <a v-bind:href="item.url"> -->
+      <!-- item 안에 있는 데이터를 href에 연결해야 되기 때문에 v-bind를 사용한다. -->
+      <!-- {{ item.title }} -->
+      <!-- </a> -->
+
+      <!-- 👩‍💻 (ASK 상세페이지 구현)내가 한 방법 👩‍💻 -->
+      <!-- <router-link v-bind:to="item.url"> -->
+      <!-- 🧑‍🏫 (ASK 상세페이지 구현)강사님이 한 방법 🧑‍🏫 -->
+      <router-link v-bind:to="`item/${item.id}`">
         {{ item.title }}
-      </a>
+      </router-link>
       <small>{{ item.time_ago }} by {{ item.user }}</small>
     </p>
     <!-- ========================================= -->

@@ -37,7 +37,10 @@ export const router = new VueRouter({
       component: UserView,
     },
     {
-      path: '/item',
+      // 👩‍💻 (ASK 상세페이지 구현)내가 한 방법 👩‍💻
+      // path: '/item',
+      // 🧑‍🏫 (ASK 상세페이지 구현)강사님 방법 🧑‍🏫
+      path: '/item/:id',
       component: ItemView,
     },
   ],
