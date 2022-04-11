@@ -14,7 +14,7 @@ export const store = new Vuex.Store({
     ask: [],
   },
   getters: {
-    // 👩‍💻 getters : computed와 동일한 기능인데(다만,store에 있을 뿐이다.)
+    // 👩‍💻 getters : computed와 동일한 기능인데(다만,store에 있을 뿐이다.) 👩‍💻
     fetchedAsk(state) {
       return state.ask;
     },

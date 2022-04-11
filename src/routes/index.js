@@ -9,6 +9,9 @@ import ItemView from '../views/ItemView.vue';
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
+  // 🍥 mode: 'history' : 주소창에 # 빼주는 기능
+  mode: 'history',
+
   routes: [
     {
       path: '/',
@@ -38,6 +41,4 @@ export const router = new VueRouter({
       component: ItemView,
     },
   ],
-  // 🍥 mode: 'history' : 주소창에 # 빼주는 기능
-  mode: 'history',
 });
