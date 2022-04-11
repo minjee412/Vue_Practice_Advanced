@@ -1,4 +1,9 @@
-import { fetchNewsList, fetchJobsList, fetchAskList } from '../api';
+import {
+  fetchNewsList,
+  fetchJobsList,
+  fetchAskList,
+  fetchUserInfo,
+} from '../api';
 
 export default {
   FETCH_NEWS(context) {
@@ -25,5 +30,16 @@ export default {
         commit('SET_ASK', data);
       })
       .catch((error) => console.log(error));
+  },
+
+  FETCH_USER({ commit }, name) {
+    // UserView의 userName을 name으로 넘겨 받았다.
+    fetchUserInfo(name)
+      .then(({ data }) => {
+        commit('SET_USER', data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
