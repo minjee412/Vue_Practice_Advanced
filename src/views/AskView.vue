@@ -1,35 +1,47 @@
 <template>
   <div>
-      <div v-for='item in ask' v-bind:key="item.id">
-        {{item.title}}
-      </div>
+    <!-- #1 -->
+    <!-- <div v-for="item in ask.ask" v-bind:key="item.id"> -->
+    <!-- #2 & #3 -->
+    <div v-for="item in fetchedAsk /*askItems*/" v-bind:key="item.id">
+      {{ item.title }}
+    </div>
   </div>
 </template>
 
 <script>
-import { fetchAskList } from "../api/index";
+// #2
+// import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
-  data(){
-    return {
-      ask: []
-    }
+  computed: {
+    // 🔶🔶🔶🔶 map 헬퍼 함수 사용하기 🔶🔶🔶🔶
+    // #3
+    ...mapGetters(['fetchedAsk']),
+    // ...mapGetters({
+    //  askItems = 'fetchedAsk'
+    // }),
+
+    // #2
+    // ...mapState({
+    //   fetchedAsk: (state) => state.ask,
+    // }),
+    // #1
+    // ask() {
+    //   return this.$store.state;
+    // },
+    // 🔶🔶🔶🔶🔶🔶🔶🔶🔶🔶🔶🔶🔶🔶🔶🔶🔶
   },
 
-  created(){
-    // ========== 😮 this의 차이 😮 ==========
-    // function()의 this :  선언된 함수 내부를 가리키게 됩니다. 
-    // arrow function의 this : 함수가 선언되든 말든 원래의 위치인 Vue Instance를 가리킵니다.
-    fetchAskList()
-    .then(response => this.ask = response.data)
-    .catch(error => console.log(error))
-  }
-
-}
+  created() {
+    this.$store.dispatch('FETCH_ASK');
+  },
+};
 </script>
 
 <style scope>
-  div {
-    font-size: 3rem;
-  }
+div {
+  font-size: 1rem;
+}
 </style>

@@ -20,7 +20,7 @@
         function CallAjax() {
           return new Promise(function (resolve, reject) {
             // Promise는 무조건 resolve(성공했을때)와 reject(실패했을때)라는 인자값을 갖는다.
-            s$.ajax({
+            $.ajax({
               url: 'https://api.hnpwa.com/v0/news/1.json',
               success: function (data) {
                 resolve(data);
@@ -29,7 +29,6 @@
           });
         }
 
-        // 1
         var result = [];
 
         CallAjax().then(function (data) {
@@ -38,26 +37,6 @@
           console.log('함수 결과', result);
         });
         //   .catch();
-
-        // 2
-        // $.ajax({
-        //   url: 'https://api.hnpwa.com/v0/news/1.json',
-
-        //   // sucess는 ajax만 가지고 있는 자체 callback 유효 함수
-        //   success: function (data) {
-        //     console.log('데이터 호출 결과', data);
-        //     result = data;
-        //     console.log('함수 결과', result);
-        //   },
-        // });
-
-        // $.ajax()
-        // new Promise ➡️ then 과 catch를 반환하려면 반드시 Promise가 return 되어야 한다.
-        //     .then(성공시 실행하는 로직)
-        //     .catch(실패시 실행하는 로직)
-
-        // 3
-        // console.log('함수결과', result);
       }
 
       // 😮 함수 호출부 !! 😮
