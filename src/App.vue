@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- 1 - Strongly Recommended -->
+    <!-- <ToolBar></ToolBar> -->
+    <!--- 🙅‍♀️해당 태크 폴더로 이동하지 않는다. --->
+
+    <!-- 2 - Essential -->
+    <tool-bar></tool-bar>
+    <!--- 🥞 해당 태그로 이동 한다. --->
+
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import ToolBar from './components/ToolBar.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    ToolBar,
+
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
