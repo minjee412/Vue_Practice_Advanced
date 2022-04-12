@@ -1,24 +1,14 @@
-# vue-news
 
-## Project setup
+🍥 폴더 전체에 Eslint 적용 해제 🍥       </br>
+    1. Root에 vue.config.js 파일 생성     </br>
+    2. 아래 코드 입력
 ```
-npm install
+     module.exports = {  
+       devServer: {
+            overlay: {
+            warnings: true,
+            errors: true
+            }
+        }
+      }
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
