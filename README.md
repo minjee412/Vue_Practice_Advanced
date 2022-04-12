@@ -1,24 +1,14 @@
-# vue-news
+실습 순서
 
-## Project setup
-```
-npm install
-```
+1. ItemView 생성
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+2. 라우터에 ItemView로 갈 수 있는 라우터 정보를 등록
+   {
+   path: '',
+   component:
+   }
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+3. 해당 페이지 컴포넌트로 이동했을 때 받아온 params(id)를 이용해서 페이지 데이터를 표시
+   created() {
+   this.$store.dispatch('');
+   }
