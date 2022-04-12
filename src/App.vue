@@ -1,28 +1,43 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- 1 - Strongly Recommended -->
+    <!-- <ToolBar></ToolBar> -->
+    <!--- 🙅‍♀️해당 태크 폴더로 이동하지 않는다. --->
+
+    <!-- 2 - Essential -->
+    <tool-bar></tool-bar>
+    <!--- 🥞 해당 태그로 이동 한다. --->
+
+    <transition name="page">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ToolBar from './components/ToolBar.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    ToolBar,
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/*  Router Transition  */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+
+.page-endter,
+.page-leave-to {
+  opacity: 0;
 }
 </style>
