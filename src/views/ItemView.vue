@@ -1,10 +1,30 @@
 <template>
   <div>
-    <!-------------------- mapper함수 사용 -------------------->
-    <!-- <p>{{ this.$store.state.item.title }}</p> -->
-    <p>{{ fetchedItem.title }}</p>
-    <!-------------------------------------------------------->
-    <p>{{ this.$store.state.item.content }}</p>
+    <section>
+      <!-- 질문 상세 정보 -->
+      <div class="user-container">
+        <div>
+          <i class="fa-solid fa-user-secret"></i>
+        </div>
+        <div class="user-description">
+          <router-link :to="`/user/${fetchedItem.user}`">
+            <!-- NewsView에서 user정보로 이동하는 코드참고하기 -->
+            <!-- user앞에 /는 주소창에 8080/item/user/아이디로 나오는걸 8080/user/아이디로 나오도록 바꿔줌  -->
+            {{ fetchedItem.user }}
+          </router-link>
+          <div class="time">
+            {{ fetchedItem.time_ago }}
+          </div>
+        </div>
+      </div>
+      <!-- <p>{{ fetchedItem.title }}</p> -->
+      <h2>{{ fetchedItem.title }}</h2>
+    </section>
+    <section>
+      <!-- 질문 댓글 -->
+      <!-- <p>{{ this.$store.state.item.content }}</p> -->
+      <div v-html="fetchedItem.content"></div>
+    </section>
   </div>
 </template>
 
@@ -29,4 +49,22 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.user-container {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.fa-solid {
+  font-size: 2.5rem;
+}
+
+.user-description {
+  padding-left: 8px;
+}
+
+.time {
+  font-size: 0.7rem;
+}
+</style>
