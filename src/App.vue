@@ -1,13 +1,6 @@
 <template>
   <div id="app">
-    <!-- 1 - Strongly Recommended -->
-    <!-- <ToolBar></ToolBar> -->
-    <!--- 🙅‍♀️해당 태크 폴더로 이동하지 않는다. --->
-
-    <!-- 2 - Essential -->
     <tool-bar></tool-bar>
-    <!--- 🥞 해당 태그로 이동 한다. --->
-
     <transition name="page">
       <router-view></router-view>
     </transition>
@@ -28,6 +21,20 @@ export default {
 body {
   padding: 0;
   margin: 0;
+}
+
+a {
+  color: #35495e;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #42b883;
+  text-decoration: underline;
+}
+
+a.router-link-exact-active {
+  text-decoration: underline;
 }
 
 /*  Router Transition  */
