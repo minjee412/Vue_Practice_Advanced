@@ -6,13 +6,13 @@
       </div>
       <div class="user-description">
         <div>
-          {{ userInfo.id }}
+          {{ info.id }}
         </div>
         <!-- <router-link :to="`/user/${userInfo.user}`">
           {{ userInfo.id }}
         </router-link> -->
         <div class="time">
-          {{ userInfo.created }}
+          {{ info.created }}
         </div>
       </div>
     </div>
@@ -21,10 +21,8 @@
 
 <script>
 export default {
-  computed: {
-    userInfo() {
-      return this.$store.state.user;
-    },
+  props: {
+    info: Object, //info가 Object 형식이라는 validation 까지 함께 넣었다.
   },
 };
 </script>
