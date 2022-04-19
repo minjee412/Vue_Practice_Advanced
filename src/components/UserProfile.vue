@@ -12,8 +12,11 @@
           <!-- time: {{ info.created }} -->
           <slot name="time"></slot>
           <!-- 상위 컴포넌트에서 정의 할 영역 -->
+
+          <slot name="karma">
+            <!-- 상위 컴포넌트에서 정의 할 영역 -->
+          </slot>
         </div>
-        <slot name="karma"></slot>
       </div>
     </div>
   </div>
