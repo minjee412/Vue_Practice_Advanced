@@ -21,6 +21,7 @@ export default {
     // console.log(this.$route.params.id);
     const userName = this.$route.params.id;
     this.$store.dispatch('FETCH_USER', userName);
+    // 🥞dispatch : 보내다
   },
 };
 </script>
