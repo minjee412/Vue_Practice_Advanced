@@ -16,7 +16,7 @@ export default {
   },
 
   FETCH_JOBS({ commit }) {
-    // 👩‍💻 cotext 안에 commit이 이미 들어가 있기 때문에
+    // 👩‍💻 cotext 안에 commit은 이미 들어있는 요소이기 때문에
     // {commit}으로도 표현이 가능 하다. 👩‍💻
     fetchJobsList()
       .then(({ data }) => {

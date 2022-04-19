@@ -4,16 +4,16 @@
       <div>
         <i class="fa-solid fa-user-secret"></i>
       </div>
+
       <div class="user-description">
-        <div>
-          {{ info.id }}
-        </div>
-        <!-- <router-link :to="`/user/${userInfo.user}`">
-          {{ userInfo.id }}
-        </router-link> -->
+        <slot name="username"></slot>
+        <!-- 상위 컴포넌트에서 정의 할 영역 -->
         <div class="time">
-          {{ info.created }}
+          <!-- time: {{ info.created }} -->
+          <slot name="time"></slot>
+          <!-- 상위 컴포넌트에서 정의 할 영역 -->
         </div>
+        <slot name="karma"></slot>
       </div>
     </div>
   </div>
