@@ -11,6 +11,10 @@ export default {
     fetchNewsList()
       .then((response) => {
         context.commit('SET_NEWS', response.data);
+        // context.commit을 통해 response.data만 보내고 있는데,
+        // reponse를 return으로 보내면 NewsView.vue에서 then() catch() 사용이 가능하다.
+        return response;
+        // 🍥resonse가 객체를 반환하고 있다.
       })
       .catch((error) => console.log(error));
   },

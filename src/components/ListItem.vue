@@ -48,26 +48,6 @@
 
 <script>
 export default {
-  created() {
-    // this.$store.dispatch('FETCH_NEWS');
-    // console.log(this.$route);
-    const name = this.$route.name;
-    let actionName = ''; // actionName이 문자라는걸 먼저 정의
-
-    if (name === 'news') {
-      //   this.$store.dispatch('FETCH_NEWS');
-      // ====== 🔽이름에 따른 분기🔽 ======
-      actionName = 'FETCH_NEWS';
-      // =============================
-    } else if (name === 'ask') {
-      actionName = 'FETCH_ASK';
-    } else if (name === 'jobs') {
-      actionName = 'FETCH_JOBS';
-    }
-    this.$store.dispatch(actionName);
-    // 반드시 if, else if 밑에 줄에 있어야 한다.
-  },
-
   computed: {
     listItems() {
       const name = this.$route.name;

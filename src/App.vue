@@ -4,15 +4,43 @@
     <transition name="page">
       <router-view></router-view>
     </transition>
+    <spinner-item :loading="loadingStatus"></spinner-item>
   </div>
 </template>
 
 <script>
 import ToolBar from './components/ToolBar.vue';
+import SpinnerItem from './components/SpinnerItem.vue';
+import bus from './utils/bus';
 
 export default {
   components: {
     ToolBar,
+    SpinnerItem,
+  },
+  data() {
+    return {
+      loadingStatus: false,
+    };
+  },
+  methods: {
+    startSpinner() {
+      this.loadingStatus = true;
+    },
+
+    endSpinner() {
+      this.loadingStatus = false;
+    },
+  },
+  created() {
+    bus.$on('start:spinner', this.startSpinner);
+    bus.$on('end:spinner', this.endSpinner);
+  },
+
+  // bus 이벤트는 계속 쌓이기 때문에, off를 꼭 시켜줘야 한다.
+  beforeDestroy() {
+    bus.$off('start:spinner', this.startSpinner);
+    bus.$off('end:spinner', this.endSpinner);
   },
 };
 </script>
