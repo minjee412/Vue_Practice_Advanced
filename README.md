@@ -1,14 +1,9 @@
-실습 순서
+HOC 와 Mixin 차이점
 
-1. ItemView 생성
+HOC ? NewsView 폴더 및에 ListView라는 상위 폴더가 하나 더 만들어 지고,
+그 아래에 ListItem이 들어온다. (단, 구조가 복잡할수록 폴더 깊이도 더 깊어지기 때문에
+관리에 어려움이 생길 수 있다.)
 
-2. 라우터에 ItemView로 갈 수 있는 라우터 정보를 등록
-   {
-   path: '',
-   component:
-   }
+Mixin ? NewsView 폴더 아래에 바로 ListItem이 온다.
 
-3. 해당 페이지 컴포넌트로 이동했을 때 받아온 params(id)를 이용해서 페이지 데이터를 표시
-   created() {
-   this.$store.dispatch('');
-   }
+> > 둘다 공통된 부분을 따로 들어내서 가독성과 유지 보수가 그나마 수월하다.
