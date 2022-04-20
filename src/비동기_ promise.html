@@ -19,7 +19,6 @@
       function fetchData() {
         function CallAjax() {
           return new Promise(function (resolve, reject) {
-            // Promise는 무조건 resolve(성공했을때)와 reject(실패했을때)라는 인자값을 갖는다.
             $.ajax({
               url: 'https://api.hnpwa.com/v0/news/1.json',
               success: function (data) {
@@ -36,10 +35,8 @@
           result = data;
           console.log('함수 결과', result);
         });
-        //   .catch();
       }
 
-      // 😮 함수 호출부 !! 😮
       fetchData();
     </script>
   </body>

@@ -7,15 +7,9 @@
 
       <div class="user-description">
         <slot name="username"></slot>
-        <!-- 상위 컴포넌트에서 정의 할 영역 -->
         <div class="time">
-          <!-- time: {{ info.created }} -->
           <slot name="time"></slot>
-          <!-- 상위 컴포넌트에서 정의 할 영역 -->
-
-          <slot name="karma">
-            <!-- 상위 컴포넌트에서 정의 할 영역 -->
-          </slot>
+          <slot name="karma"> </slot>
         </div>
       </div>
     </div>
@@ -25,7 +19,7 @@
 <script>
 export default {
   props: {
-    info: Object, //info가 Object 형식이라는 validation 까지 함께 넣었다.
+    info: Object,
   },
 };
 </script>

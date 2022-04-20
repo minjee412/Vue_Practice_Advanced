@@ -1,19 +1,11 @@
 <template>
   <div>
     <ul class="news-list">
-      <li
-        v-for="item in listItems /*this.$store.state.news // 공통컴포넌트 이기 때문에 이름을 한정하면 안된다.*/"
-        v-bind:key="item.id"
-        class="post"
-      >
-        <!-- 포인트 영역 -->
+      <li v-for="item in listItems" v-bind:key="item.id" class="post">
         <div class="points">
           {{ item.points || item.comments_count }}
-          <!-- points가 없으면 comments_count으로 표시 -->
         </div>
-        <!-- 기타 정보 영역 -->
         <div>
-          <!-- 타이틀 영역 -->
           <p class="news-title">
             <template v-if="item.domain">
               <a v-bind:href="item.url">
@@ -50,14 +42,15 @@
 export default {
   computed: {
     listItems() {
-      const name = this.$route.name;
-      if (name === 'news') {
-        return this.$store.state.news;
-      } else if (name === 'ask') {
-        return this.$store.state.ask;
-      } else {
-        return this.$store.state.jobs;
-      }
+      return this.$store.state.list;
+      // const name = this.$route.name;
+      // if (name === 'news') {
+      //   return this.$store.state.news;
+      // } else if (name === 'ask') {
+      //   return this.$store.state.ask;
+      // } else {
+      //   return this.$store.state.jobs;
+      // }
     },
   },
 };

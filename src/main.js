@@ -8,5 +8,5 @@ Vue.config.productionTip = false;
 new Vue({
   render: (h) => h(App),
   router,
-  store, // store: store 의 줄인 표현
+  store,
 }).$mount('#app');

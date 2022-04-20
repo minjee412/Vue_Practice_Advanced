@@ -37,7 +37,6 @@ export default {
     bus.$on('end:spinner', this.endSpinner);
   },
 
-  // bus 이벤트는 계속 쌓이기 때문에, off를 꼭 시켜줘야 한다.
   beforeDestroy() {
     bus.$off('start:spinner', this.startSpinner);
     bus.$off('end:spinner', this.endSpinner);
