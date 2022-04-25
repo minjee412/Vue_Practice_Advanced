@@ -1,77 +1,25 @@
 <template>
-  <div id="app">
-    <tool-bar></tool-bar>
-    <transition name="page">
-      <router-view></router-view>
-    </transition>
-    <spinner-item :loading="loadingStatus"></spinner-item>
+  <div>
+    <button @click="loginUser">login</button>
+    <h1>List</h1>
   </div>
 </template>
 
 <script>
-import ToolBar from './components/ToolBar.vue';
-import SpinnerItem from './components/SpinnerItem.vue';
-import bus from './utils/bus';
-
+import axios from 'axios';
 export default {
-  components: {
-    ToolBar,
-    SpinnerItem,
-  },
   data() {
     return {
-      loadingStatus: false,
+      items: [],
     };
   },
   methods: {
-    startSpinner() {
-      this.loadingStatus = true;
+    loginUser() {
+      axios
+        .get('https://jsonplaceholder.typicode.com/users/1')
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error));
     },
-
-    endSpinner() {
-      this.loadingStatus = false;
-    },
-  },
-  created() {
-    bus.$on('start:spinner', this.startSpinner);
-    bus.$on('end:spinner', this.endSpinner);
-  },
-
-  beforeDestroy() {
-    bus.$off('start:spinner', this.startSpinner);
-    bus.$off('end:spinner', this.endSpinner);
   },
 };
 </script>
-
-<style>
-body {
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: #35495e;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #42b883;
-  text-decoration: underline;
-}
-
-a.router-link-exact-active {
-  text-decoration: underline;
-}
-
-/*  Router Transition  */
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.5s;
-}
-
-.page-endter,
-.page-leave-to {
-  opacity: 0;
-}
-</style>
